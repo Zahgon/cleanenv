@@ -1,10 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"log"
-	"os"
-	"strings"
 
 	"github.com/ilyakaznacheev/cleanenv"
 )
@@ -34,34 +31,6 @@ func main() {
 	return
 }
 
-func (r *roles) SetValue(s string) error {
-	if s == "" {
-		return fmt.Errorf("field value can't be empty")
-	}
+func (r *roles) SetValue(s string) error { _ = "STUB: not implemented"; return nil }
 
-	roles := strings.Split(s, " ")
-	for i := 0; i < len(roles); i++ {
-		*r = append(*r, roles[i])
-	}
-
-	return nil
-}
-
-func setEnvValues() error {
-	err := os.Setenv("PORT", "8080")
-	if err != nil {
-		return fmt.Errorf("Error setting port, err = %v", err)
-	}
-
-	err = os.Setenv("JWT_SECRET", "random_secret")
-	if err != nil {
-		return fmt.Errorf("Error setting jwt secret, err = %v", err)
-	}
-
-	err = os.Setenv("ROLES", "admin owner member")
-	if err != nil {
-		return fmt.Errorf("Error setting roles, err = %v", err)
-	}
-
-	return nil
-}
+func setEnvValues() error { _ = "STUB: not implemented"; return nil }

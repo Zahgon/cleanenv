@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"flag"
 	"fmt"
 	"net/http"
 	"os"
@@ -34,14 +33,8 @@ type Args struct {
 
 // ConnectDB connects to an abstract database
 func ConnectDB(host, port, user, password, name string, conn int) (*sql.DB, error) {
-	db, err := sql.Open("some database",
-		fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-			host, port, user, password, name))
-	if err != nil {
-		return nil, err
-	}
-	db.SetMaxOpenConns(conn)
-	return db, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 func main() {
@@ -67,20 +60,4 @@ func main() {
 }
 
 // ProcessArgs processes and handles CLI arguments
-func ProcessArgs(cfg interface{}) Args {
-	var a Args
-
-	f := flag.NewFlagSet("Example server", 1)
-	f.StringVar(&a.ConfigPath, "c", "config.yml", "Path to configuration file")
-
-	fu := f.Usage
-	f.Usage = func() {
-		fu()
-		envHelp, _ := cleanenv.GetDescription(cfg, nil)
-		fmt.Fprintln(f.Output())
-		fmt.Fprintln(f.Output(), envHelp)
-	}
-
-	f.Parse(os.Args[1:])
-	return a
-}
+func ProcessArgs(cfg interface{}) Args { _ = "STUB: not implemented"; return *new(Args) }

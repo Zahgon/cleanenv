@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/url"
-	"os"
 	"time"
 
 	"github.com/ilyakaznacheev/cleanenv"
@@ -35,31 +33,4 @@ func main() {
 	return
 }
 
-func setEnvValues() error {
-	err := os.Setenv("PORT", "8080")
-	if err != nil {
-		return fmt.Errorf("Error setting port, err = %v", err)
-	}
-
-	err = os.Setenv("JWT_SECRET", "random_secret")
-	if err != nil {
-		return fmt.Errorf("Error setting jwt secret, err = %v", err)
-	}
-
-	err = os.Setenv("START", time.Now().Format(time.RFC3339))
-	if err != nil {
-		return fmt.Errorf("Error setting start, err = %v", err)
-	}
-
-	err = os.Setenv("TTL", "17s")
-	if err != nil {
-		return fmt.Errorf("Error setting ttl, err = %v", err)
-	}
-
-	err = os.Setenv("DB", "redis://user:password@redishost:1234")
-	if err != nil {
-		return fmt.Errorf("Error setting URL, err = %v", err)
-	}
-
-	return nil
-}
+func setEnvValues() error { _ = "STUB: not implemented"; return nil }
